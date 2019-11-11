@@ -6,13 +6,13 @@
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 18:36:07 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/11 00:39:39 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/11 20:12:54 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
 
-char	pick_mode()
+static int	pick_mode()
 {
 	std::string choice;
 
@@ -30,30 +30,57 @@ char	pick_mode()
 	return (0);
 }
 
-void	add_contact(Contact **book, int contacts)
+static void	add_contact(Contact *book, int *contacts)
 {
-	if (contacts > 8)
-		std::cout << "The phonebook is full" << std::endl;
+	if (*contacts > 7)
+		std::cout << "The phonebook is full." << std::endl;
+	else
+		book[(*contacts)].fill_info((*contacts)++);
+}
+
+static void	search_contact(Contact *book, int contacts)
+{
+	if (!contacts)
+		std::cout << "The phonebook is empty." << std::endl;
 	else
 	{
-		static Contact next;
-		book[contacts++] = &next;
+		for (int i = 0; i < contacts; ++i)
+			book[i].print_less();
+		int choice;
+		while (1)
+		{
+			std::cout << "Pick a contact: ";
+			std::cin >> choice;
+			if (std::cin.fail())
+			{
+				std::cout << "Not a number." << std::endl;
+				std::cin.clear();
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			}
+			else if (choice >= 0 && choice < contacts)
+			{
+				book[choice].print();
+				return ;
+			}
+			else
+				std::cout << "No contact with that index." << std::endl;
+		}
 	}
 }
 
-int		main(void)
+int			main(void)
 {
-	Contact	*book[8];
+	Contact	book[8];
 	int		contacts = 0;
-	char	choice = 0;
+	int		choice = 0;
 
 	while (choice != 3)
 	{
 		choice = pick_mode();
 		if (choice == BOOK_ADD)
-			add_contact(book, contacts);
-		// else if (choice == 's')
-		// 	search_contact(book, contacts);
+			add_contact(book, &contacts);
+		else if (choice == BOOK_SEARCH)
+		 	search_contact(book, contacts);
 	}
 	return (0);
 }

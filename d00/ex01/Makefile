@@ -6,7 +6,7 @@
 #    By: smorty <smorty@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/10 18:05:47 by smorty            #+#    #+#              #
-#    Updated: 2019/11/11 00:35:57 by smorty           ###   ########.fr        #
+#    Updated: 2019/11/11 20:29:10 by smorty           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ CC		:= g++
 CCFLAGS	:= -Wall -Werror -Wextra
 
 vpath %.cpp	${SRC_DIR}
+vpath %.o	${OBJ_DIR}
 
 all: ${NAME}
 
@@ -35,7 +36,7 @@ ${NAME}: ${OBJ}
 ${OBJ_DIR}:
 	@mkdir ${OBJ_DIR}
 
-%.o: %.cpp ${OBJ_DIR}
+${OBJ}: %.o: %.cpp ${OBJ_DIR}
 	${CC} ${CCFLAGS} -I ${INC_DIR} -c $< -o ${OBJ_DIR}/$@
 
 clean:
