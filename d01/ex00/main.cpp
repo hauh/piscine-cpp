@@ -6,11 +6,11 @@
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 18:37:54 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/12 18:45:06 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/12 18:52:38 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.class.hpp"
+#include "Pony.hpp"
 
 void	ponyOnTheHeap()
 {
