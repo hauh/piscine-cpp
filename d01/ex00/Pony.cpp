@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Pony.class.cpp                                     :+:      :+:    :+:   */
+/*   Pony.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 16:51:40 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/12 18:40:41 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/12 23:53:39 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.class.hpp"
+#include "Pony.hpp"
 
 Pony::Pony() : _name("[unnamed]"), _color("[undefined]"), _age(0), _weight(0) {
 	std::cout << "Unnamed pony is born." << std::endl;

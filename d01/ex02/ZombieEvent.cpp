@@ -6,7 +6,7 @@
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 19:38:31 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/12 21:43:29 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/12 23:52:56 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ void	ZombieEvent::setZombieType(std::string &type) {
 	_type = type;
 }
 
-Zombie	*ZombieEvent::newZombie(std::string name)
-{
-	Zombie *next = new Zombie(name);
+Zombie	*ZombieEvent::newZombie(std::string name) {
 	return (new Zombie(name, _type));
 }
