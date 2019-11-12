@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/12 18:55:07 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/12 21:47:14 by smorty           ###   ########.fr       */
+/*   Created: 2019/11/12 22:14:25 by smorty            #+#    #+#             */
+/*   Updated: 2019/11/12 22:39:12 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef		ZOMBIE_HPP
-# define	ZOMBIE_HPP
+#include "ZombieHorde.hpp"
 
-#include <string>
-#include <iostream>
-
-class Zombie
+int main()
 {
-private:
-	std::string	_name;
-	std::string	_type;
-
-public:
-	Zombie();
-	Zombie(std::string &name, std::string &type);
-	~Zombie();
-
-	void	announce() const;
-};
-
-#endif
+	ZombieHorde *horde = new ZombieHorde(10);
+	horde->announce();
+	delete horde;
+}

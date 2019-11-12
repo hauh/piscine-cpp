@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Pony.class.hpp                                     :+:      :+:    :+:   */
+/*   Pony.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 16:52:54 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/12 18:36:02 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/12 18:56:24 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef		PONY_CLASS_HPP
-# define	PONY_CLASS_HPP
+#ifndef		PONY_HPP
+# define	PONY_HPP
 
 # include <iostream>
 # include <string>
