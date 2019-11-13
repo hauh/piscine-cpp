@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   Human.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/12 23:59:28 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/13 00:38:17 by smorty           ###   ########.fr       */
+/*   Created: 2019/11/13 19:36:27 by smorty            #+#    #+#             */
+/*   Updated: 2019/11/13 22:27:24 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanB.hpp"
+#ifndef		HUMAN_HPP
+# define	HUMAN_HPP
 
-HumanB::HumanB(std::string name)
-	: _name(name), _weapon(nullptr) {}
+#include <string>
+#include <iostream>
+#include <map>
 
-void	HumanB::setWeapon(Weapon &weapon) { _weapon = &weapon; }
-
-void	HumanB::attack() const
+class Human
 {
-	std::cout << _name << " atacks with ";
-	if (_weapon)
-		std::cout << _weapon->getType() << std::endl;
-	else
-		std::cout << "bare fists" << std::endl;
-}
+private:
+	void	meleeAttack(std::string const & target);
+	void	rangedAttack(std::string const & target);
+	void	intimidatingShout(std::string const & target);
+
+public:
+	void	action(std::string const & action_name, std::string const & target);
+};
+
+#endif
