@@ -6,7 +6,7 @@
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 08:37:32 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/16 09:09:34 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/16 09:17:23 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,12 @@ static void	output_file(std::string filename)
     if (file.is_open())
         std::cout << file.rdbuf();
 	else
-		std::cout << filename << ": error opening file" << std::endl;
+		std::cerr << filename << ": " << strerror(errno) << std::endl;
 }
 
-static void	output_stdin(void)
+static void	output_stdin(std::istream &in)
 {
-	std::string in;
-
-	while (getline(std::cin, in))
-		std::cout << in << std::endl;
+	std::cout << in.rdbuf();
 }
 
 int			main(int argc, char **argv)
@@ -37,6 +34,6 @@ int			main(int argc, char **argv)
 		for (int i = 1; i < argc; ++i)
 			output_file(argv[i]);
 	else
-		output_stdin();
+		output_stdin(std::cin);
 	return (0);
 }
