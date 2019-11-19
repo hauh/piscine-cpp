@@ -6,7 +6,7 @@
 #    By: smorty <smorty@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/19 23:44:58 by smorty            #+#    #+#              #
-#    Updated: 2019/11/20 00:06:43 by smorty           ###   ########.fr        #
+#    Updated: 2019/11/20 00:39:46 by smorty           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,23 +20,21 @@ CPP		:= eval_expr.cpp
 CLASSES	:= Fixed.class.cpp OpStack.class.cpp Postfix.class.cpp
 INCLUDE	:= eval_expr.hpp Fixed.class.hpp OpStack.class.hpp Postfix.class.hpp
 
-OBJ		:= ${CPP:%.cpp=%.o}
-OBJ		+= $(CLASSES:%.cpp=%.o)
+OBJ		:= $(addprefix ${OBJ_DIR}/, ${CPP:%.cpp=%.o} $(CLASSES:%.cpp=%.o))
 
 CC		:= g++
 CCFLAGS	:= -Wall -Werror -Wextra --std=c++11
 
 vpath %.cpp	${SRC_DIR}
 vpath %.hpp	${INC_DIR}
-vpath %.o	${OBJ_DIR}
 
 all: ${NAME}
 
 ${NAME}: ${OBJ}
-	${CC} ${CCFLAGS} $(addprefix ${OBJ_DIR}/, $^) -o $@
+	@${CC} ${CCFLAGS} $^ -o $@
 
-${OBJ}: %.o: %.cpp ${INCLUDE} | ${OBJ_DIR}
-	${CC} ${CCFLAGS} -I ${INC_DIR} -c $< -o ${OBJ_DIR}/$@
+${OBJ}: ${OBJ_DIR}/%.o: ${SRC_DIR}/%.cpp ${INCLUDE} | ${OBJ_DIR}
+	@${CC} ${CCFLAGS} -I ${INC_DIR} -c $< -o $@
 
 ${OBJ_DIR}:
 	@mkdir $@

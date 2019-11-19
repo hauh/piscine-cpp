@@ -6,7 +6,7 @@
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 18:41:13 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/19 18:55:55 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/20 00:12:00 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ private:
 
 public:
 	OpStack();
+	~OpStack();
 
 	void	push(char op);
 	char	pop(void);

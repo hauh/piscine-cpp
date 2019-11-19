@@ -6,7 +6,7 @@
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 18:41:00 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/20 00:09:29 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/20 00:11:47 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,10 @@ char	OpStack::pop(void)
 char	OpStack::peek(void) const
 {
 	return (_top ? _top->op : 0);
+}
+
+OpStack::~OpStack()
+{
+	while (pop())
+		;
 }
