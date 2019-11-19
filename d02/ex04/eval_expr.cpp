@@ -5,30 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/17 20:05:45 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/18 00:31:05 by smorty           ###   ########.fr       */
+/*   Created: 2019/11/19 23:39:38 by smorty            #+#    #+#             */
+/*   Updated: 2019/11/19 23:40:19 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.class.hpp"
+#include "eval_expr.hpp"
 
-static Fixed	evalExpr(char **expr);
-
-static Fixed	aToFixed(char **expr)
+static Fixed	*aToFixed(char **expr)
 {
 	int sign = 1;
 	int integ = 0;
 	int fract = 0;
 	int fract_len = 1;
 
-	while (**expr == ' ')
-		++(*expr);
-	if (**expr == '(')
-	{
-		Fixed ret(evalExpr(&++(*expr)));
-		++(*expr);
-		return (ret);
-	}
 	if (**expr == '-')
 	{
 		sign *= -1;
@@ -49,48 +39,55 @@ static Fixed	aToFixed(char **expr)
 			fract_len *= 10;
 		}
 	}
-	return (Fixed(sign * integ + static_cast<float>(fract) / fract_len));
+	return (new Fixed(sign * integ + static_cast<float>(fract) / fract_len));
 }
 
-static void		highPriority(char **expr, Fixed &eval)
+static Fixed	syntaxError(void)
 {
-	while (**expr == '*' || **expr == '/')
+	std::cout << "Syntax Error ";
+	return (Fixed (-1));
+}
+
+static Fixed	evalExpr(char *expr)
+{
+	OpStack		ops;
+	Postfix		expr_postfix;
+
+	while (*expr)
 	{
-		char op = *(*expr)++;
-		op == '*' ? eval *= aToFixed(expr) : eval /= aToFixed(expr);
-		while (**expr == ' ')
-			++(*expr);
-	}
-}
-
-static void		lowPriority(char **expr, Fixed &eval, char op)
-{
-	++(*expr);
-	Fixed num = aToFixed(expr);
-	if (op == '-')
-		num *= -1;
-	eval += num + evalExpr(expr);
-}
-
-static Fixed	evalExpr(char **expr)
-{
-	Fixed eval = aToFixed(expr);
-
-	while (**expr && **expr != ')')
-	{
-		if (**expr == '*' || **expr == '/')
-			highPriority(expr, eval);
-		else if (**expr == '+' || **expr == '-')
-			lowPriority(expr, eval, **expr);
+		if (*expr == ' ')
+			++expr;
+		else if (IS_DIGIT(*expr) || (*expr == '-' && IS_DIGIT(*(expr + 1))))
+			expr_postfix.add(aToFixed(&expr));
+		else if (IS_OPERATOR(*expr))
+		{
+			while (ops.peek() && ops.peek() != '(')
+				expr_postfix.add(ops.pop());
+			ops.push(*expr++);
+		}
+		else if (*expr == '(')
+			ops.push(*expr++);
+		else if (*expr == ')')
+		{
+			while (ops.peek() && ops.peek() != '(')
+				expr_postfix.add(ops.pop());
+			if (ops.peek() != '(')
+				return (syntaxError());
+			ops.pop();
+			++expr;
+		}
 		else
-			++(*expr);
+			return (syntaxError());
 	}
-	return (eval);
+	while (ops.peek())
+		expr_postfix.add(ops.pop());
+//	expr_postfix.printExpression();
+	return (expr_postfix.isSolvable() ? expr_postfix.solve() : syntaxError());
 }
 
 int				main(int argc, char **argv)
 {
 	for (int i = 1; i < argc; ++i)
-		std::cout << evalExpr(&argv[i]) << std::endl;
+		std::cout << evalExpr(argv[i]) << std::endl;
 	return (0);
 }
