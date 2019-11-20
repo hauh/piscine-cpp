@@ -6,7 +6,7 @@
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 23:39:38 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/20 00:39:36 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/20 18:20:31 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,13 @@ static Fixed	evalExpr(char *expr)
 			++expr;
 		else if (IS_DIGIT(*expr) || (*expr == '-' && IS_DIGIT(*(expr + 1))))
 			expr_postfix.add(aToFixed(&expr));
-		else if (IS_OPERATOR(*expr))
+		else if (IS_OP_HIGH(*expr))
+		{
+			while (IS_OP_HIGH(ops.peek()))
+				expr_postfix.add(ops.pop());
+			ops.push(*expr++);
+		}
+		else if (IS_OP_LOW(*expr))
 		{
 			while (ops.peek() && ops.peek() != '(')
 				expr_postfix.add(ops.pop());
@@ -81,7 +87,7 @@ static Fixed	evalExpr(char *expr)
 	}
 	while (ops.peek())
 		expr_postfix.add(ops.pop());
-	expr_postfix.printExpression();
+//	expr_postfix.printExpression();
 	return (expr_postfix.isSolvable() ? expr_postfix.solve() : syntaxError());
 }
 
