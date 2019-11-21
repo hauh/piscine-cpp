@@ -6,27 +6,28 @@
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 22:19:14 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/21 23:25:34 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/22 00:15:33 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sorcerer.hpp"
-
-Sorcerer::Sorcerer(std::string const & name, std::string const & title)
-	: _name(name), _title(title)
-{
-	std::cout << name << ", " << title << ", is born !" << std::endl;
-}
 
 void	Sorcerer::polymorph(Victim const & vict) const {
 	vict.getPolymorphed();
 }
 
 /*	Coplien	*/
+Sorcerer::Sorcerer(std::string const & name, std::string const & title)
+	: _name(name), _title(title)
+{
+	std::cout << name << ", " << title << ", is born !" << std::endl;
+}
 Sorcerer::Sorcerer(Sorcerer const & rhs) : Sorcerer(rhs._name, rhs._title) {}
+
 Sorcerer::~Sorcerer() {
 	std::cout << _name << ", " << _title << ", is dead. Consequences will never be the same !" << std::endl;
 }
+
 Sorcerer	&Sorcerer::operator=(Sorcerer const & rhs)
 {
 	if (this != &rhs)

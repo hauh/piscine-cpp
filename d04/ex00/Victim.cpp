@@ -6,25 +6,28 @@
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 22:33:57 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/21 23:25:45 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/22 00:16:20 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Victim.hpp"
 
-Victim::Victim(std::string const & name) : _name(name) {
-	std::cout << "Some random victim called " << _name << " just popped !" << std::endl;
-}
 
 void	Victim::getPolymorphed() const {
 	std::cout << _name << " has been turned into a cute little sheep !" << std::endl;
 }
 
 /*	Coplien	*/
+Victim::Victim(std::string const & name) : _name(name) {
+	std::cout << "Some random victim called " << _name << " just popped !" << std::endl;
+}
+
 Victim::Victim(Victim const & rhs) : Victim(rhs._name) {}
+
 Victim::~Victim() {
 	std::cout << "Victim " << _name << " just died for no apparent reason !" << std::endl;
 }
+
 Victim	&Victim::operator=(Victim const & rhs)
 {
 	if (this != &rhs)

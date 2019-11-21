@@ -6,7 +6,7 @@
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 22:34:11 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/21 23:33:28 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/22 00:16:44 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,10 @@ protected:
 	std::string	_name;
 
 public:
-	Victim() = delete;
+	Victim(std::string const & name);
 	Victim(Victim const & rhs);
 	virtual	~Victim();
 	Victim	&operator=(Victim const & rhs);
-
-	Victim(std::string const & name);
 
 	virtual void getPolymorphed() const;
 

@@ -6,7 +6,7 @@
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 22:16:10 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/21 22:53:40 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/22 00:15:42 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,10 @@ private:
 	std::string	_title;
 
 public:
-	Sorcerer() = delete;
+	Sorcerer(std::string const & name, std::string const & title);
 	Sorcerer(Sorcerer const & rhs);
 	~Sorcerer();
 	Sorcerer	&operator=(Sorcerer const & rhs);
-
-	Sorcerer(std::string const & name, std::string const & title);
 
 	void	polymorph(Victim const &) const;
 

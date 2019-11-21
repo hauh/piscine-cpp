@@ -6,7 +6,7 @@
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 22:55:56 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/21 23:31:11 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/22 00:15:17 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,10 @@
 class Peon : public Victim
 {
 public:
-	Peon() = delete;
-	~Peon();
-	Peon(Peon const & rhs);
-	Peon &operator=(Peon const & rhs);
-
 	Peon(std::string const & name);
+	Peon(Peon const & rhs);
+	~Peon();
+	Peon &operator=(Peon const & rhs);
 
 	virtual void	getPolymorphed() const;
 };
