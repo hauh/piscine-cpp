@@ -6,11 +6,13 @@
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 18:47:21 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/20 23:14:15 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/21 21:25:28 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+
+FragTrap::FragTrap() {}
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name, 1, 100, 100, 100, 100, 5, 30, 20)
 {

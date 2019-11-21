@@ -6,7 +6,7 @@
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 18:34:01 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/20 23:02:36 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/21 21:31:55 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ class FragTrap : public ClapTrap
 {
 private:
 	static std::string _random_attacks[];
+
+	FragTrap();
 
 public:
 	FragTrap(std::string name);

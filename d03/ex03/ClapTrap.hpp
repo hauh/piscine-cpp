@@ -6,7 +6,7 @@
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 21:45:22 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/20 23:50:33 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/21 21:32:09 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ protected:
 	int			_melee_dmg;
 	int			_ranged_dmg;
 
-	ClapTrap();
 	ClapTrap(std::string name, int level, int hp, int max_hp,
 		int ep, int max_ep,	int armor, int melee_dmg, int ranged_dmg);
 	ClapTrap(ClapTrap const & copy);
@@ -49,6 +48,9 @@ public:
 	void				setName(std::string name);
 	void				setMeleeDamage(int damage);
 	void				setRangedDamage(int damage);
+
+private:
+	ClapTrap();
 };
 
 #endif

@@ -6,11 +6,13 @@
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 18:47:21 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/20 22:57:37 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/21 21:26:37 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+
+ScavTrap::ScavTrap() {}
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 1, 100, 100, 50, 50, 3, 20, 15)
 {
