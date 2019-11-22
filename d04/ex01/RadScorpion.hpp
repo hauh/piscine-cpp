@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.hpp                                          :+:      :+:    :+:   */
+/*   RadScorpion.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/22 00:10:18 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/22 20:22:57 by smorty           ###   ########.fr       */
+/*   Created: 2019/11/22 00:34:35 by smorty            #+#    #+#             */
+/*   Updated: 2019/11/22 20:23:13 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef		ENEMY_HPP
-# define	ENEMY_HPP
+#ifndef		RADSCORPION_HPP
+# define	RADSCORPION_HPP
 
-#include	<string>
+#include	<iostream>
+#include	"Enemy.hpp"
 
-class Enemy
+class RadScorpion : public Enemy
 {
-private:
-	std::string	_type;
-	int			_hp;
-
 public:
-	Enemy(std::string const & type, int hp);
-	Enemy(Enemy const &);
-	virtual ~Enemy();
-	Enemy	&operator=(Enemy const &);
-
-	std::string const &	getType() const;
-	int					getHP() const;
-
-	virtual void	takeDamage(int);
+	RadScorpion();
+	RadScorpion(RadScorpion const &);
+	~RadScorpion();
+	RadScorpion &operator=(RadScorpion const &);
 };
 
 #endif

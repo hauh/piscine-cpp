@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   SuperMutant.cpp                                    :+:      :+:    :+:   */
+/*   RadScorpion.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 00:34:53 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/22 19:37:52 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/22 20:22:22 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "SuperMutant.hpp"
-
-void	SuperMutant::takeDamage(int damage) {
-	Enemy::takeDamage(damage - 3);
-}
+#include "RadScorpion.hpp"
 
 /*	Coplien */
-SuperMutant::SuperMutant() : Enemy("Super Mutant", 170) {
-	std::cout << "Gaaah. Me want smash heads !" << std::endl;
+RadScorpion::RadScorpion() : Enemy("RadScorpion", 80) {
+	std::cout << "* click click click *" << std::endl;
 }
 
-SuperMutant::SuperMutant(SuperMutant const & copy) : Enemy(copy) {
-	std::cout << "Gaaah. Me want smash heads !" << std::endl;
+RadScorpion::RadScorpion(RadScorpion const & copy) : Enemy(copy) {
+	std::cout << "* click click click *" << std::endl;
 }
 
-SuperMutant::~SuperMutant() {
-	std::cout << "Aaargh ..." << std::endl;
+RadScorpion::~RadScorpion() {
+	std::cout << "* SPROTCH *" << std::endl;
 }
 
-SuperMutant	&SuperMutant::operator=(SuperMutant const & copy)
+RadScorpion	&RadScorpion::operator=(RadScorpion const & copy)
 {
 	if (this != &copy)
 		Enemy::operator=(copy);

@@ -6,7 +6,7 @@
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 00:34:35 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/22 00:39:19 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/22 19:38:33 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ public:
 	SuperMutant(SuperMutant const &);
 	~SuperMutant();
 	SuperMutant &operator=(SuperMutant const &);
+
+	void	takeDamage(int);
 };
 
 #endif
