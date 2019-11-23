@@ -6,22 +6,22 @@
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 07:18:11 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/16 08:34:10 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/24 00:11:43 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Logger.hpp"
 
-Logger::Logger(const std::string &filename) : _filename(filename)
-{
-	_callback.emplace("logToConsole", &Logger::logToConsole);
-	_callback.emplace("logToFile", &Logger::logToFile);
-}
+Logger::Logger(const std::string &filename)
+	: _filename(filename),
+		_func_names{"logToConsole", "logToFile"},
+		_funcs{&Logger::logToConsole, &Logger::logToFile} {}
 
 void	Logger::log(const std::string &dest, const std::string &message)
 {
-	if (_callback[dest])
-		(this->*_callback[dest])(Logger::makeLogEntry(message));
+	for (int i = 0; i < 2; ++i)
+		if (_func_names[i] == dest)
+			(this->*_funcs[i])(makeLogEntry(message));
 }
 
 void	Logger::logToConsole(const std::string &log) const {

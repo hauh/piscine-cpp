@@ -6,7 +6,7 @@
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 19:36:27 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/13 22:27:24 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/24 00:08:37 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include <string>
 #include <iostream>
-#include <map>
 
 class Human
 {

@@ -6,7 +6,7 @@
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 19:37:52 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/16 07:43:49 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/24 00:03:18 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ void	Human::intimidatingShout(std::string const & target) {
 void	Human::action(std::string const & action_name, std::string const & target)
 {
 	using m_ptr = void (Human::*)(std::string const &);
-	std::map<const std::string, m_ptr> dict;
-	dict.emplace("meleeAttack", &Human::meleeAttack);
-	dict.emplace("rangedAttack", &Human::rangedAttack);
-	dict.emplace("intimidatingShout", &Human::intimidatingShout);
-	if (dict[action_name])
-		(this->*dict[action_name])(target);
+	std::string	names[3] = {"meleeAttack", "rangedAttack", "intimidatingShout"};
+	m_ptr		funcs[3] = {&Human::meleeAttack, &Human::rangedAttack, &Human::intimidatingShout};
+
+	for (int i = 0; i < 3; ++i)
+		if (names[i] == action_name)
+			(this->*funcs[i])(target);
 }
