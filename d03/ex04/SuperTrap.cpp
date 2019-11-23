@@ -13,12 +13,12 @@
 #include "SuperTrap.hpp"
 
 SuperTrap::SuperTrap(std::string name)
-	: ClapTrap(name, 1, 100, 100, 120, 120, 5, 60, 20), FragTrap(name), NinjaTrap(name)
+	: ClapTrap(name, 1, 100, 100, 120, 120, 5, 60, 20), NinjaTrap(name), FragTrap(name)
 {
 	std::cout << "I'm the biggest thing here! [5UP3R-TP " << _name << " created]" << std::endl;
 }
 
-SuperTrap::SuperTrap(SuperTrap &copy) : ClapTrap(copy), FragTrap(copy), NinjaTrap(copy)
+SuperTrap::SuperTrap(SuperTrap &copy) : ClapTrap(copy), NinjaTrap(copy), FragTrap(copy)
 {
 	std::cout << "I don't need bloody saving. " << _name << " construced by copy]" << std::endl;
 }

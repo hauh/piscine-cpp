@@ -6,7 +6,7 @@
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 21:59:42 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/22 22:10:44 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/23 23:23:04 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ TacticalMarine::TacticalMarine() {
 	std::cout << "Tactical Marine ready for battle" << std::endl;
 }
 
-TacticalMarine::TacticalMarine(TacticalMarine const & copy) {
+TacticalMarine::TacticalMarine(TacticalMarine const &) {
 	std::cout << "Tactical Marine ready for battle" << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 21:59:42 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/22 23:24:51 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/23 23:22:59 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ AssaultTerminator::AssaultTerminator() {
 	std::cout << "* teleports from space *" << std::endl;
 }
 
-AssaultTerminator::AssaultTerminator(AssaultTerminator const & copy) {
+AssaultTerminator::AssaultTerminator(AssaultTerminator const &) {
 	std::cout << "* teleports from space *" << std::endl;
 }
 

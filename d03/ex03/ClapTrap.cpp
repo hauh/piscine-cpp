@@ -6,13 +6,11 @@
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 21:48:35 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/20 23:51:16 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/23 23:25:25 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-
-ClapTrap::ClapTrap() {}
 
 ClapTrap::ClapTrap(std::string name, int level, int hp, int max_hp,
 		int ep, int max_ep,	int armor, int melee_dmg, int ranged_dmg)

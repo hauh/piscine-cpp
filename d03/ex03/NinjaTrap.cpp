@@ -12,8 +12,6 @@
 
 #include "NinjaTrap.hpp"
 
-NinjaTrap::NinjaTrap() {}
-
 NinjaTrap::NinjaTrap(std::string name) : ClapTrap(name, 1, 60, 60, 120, 120, 0, 60, 5)
 {
 	std::cout << "Viva La Robolution! [INAC-TP " << _name << " created]" << std::endl;

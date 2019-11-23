@@ -6,7 +6,7 @@
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 18:34:01 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/20 21:15:51 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/23 23:44:58 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ private:
 	int			_ranged_dmg;
 
 public:
-	ScavTrap();
 	ScavTrap(std::string name);
 	ScavTrap(ScavTrap &copy);
 	~ScavTrap();

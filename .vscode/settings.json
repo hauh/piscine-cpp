@@ -63,6 +63,10 @@
 		"utility": "cpp",
 		"vector": "cpp",
 		"*.tcc": "cpp",
-		"hashtable": "cpp"
+		"hashtable": "cpp",
+		"numeric": "cpp",
+		"random": "cpp",
+		"map": "cpp",
+		"__tree": "cpp"
 	}
 }

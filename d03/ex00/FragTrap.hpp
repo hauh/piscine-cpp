@@ -6,7 +6,7 @@
 /*   By: smorty <smorty@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 18:34:01 by smorty            #+#    #+#             */
-/*   Updated: 2019/11/20 20:52:18 by smorty           ###   ########.fr       */
+/*   Updated: 2019/11/23 23:45:31 by smorty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ private:
 	int			_ranged_dmg;
 
 public:
-	FragTrap();
 	FragTrap(std::string name);
 	FragTrap(FragTrap &copy);
 	~FragTrap();
