@@ -6,7 +6,7 @@
 #    By: smorty <smorty@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/10 18:05:47 by smorty            #+#    #+#              #
-#    Updated: 2019/11/10 18:25:20 by smorty           ###   ########.fr        #
+#    Updated: 2019/11/24 00:31:11 by smorty           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,16 +15,16 @@ NAME	:= megaphone
 CPP		:= megaphone.cpp
 OBJ		:= ${CPP:%.cpp=%.o}
 
-CC		:= g++
+CC		:= clang++
 CCFLAGS	:= -Wall -Werror -Wextra
 
 all: ${NAME}
 
 NAME: ${OBJ}
-	${CC} ${CCFLAGS} $^ -o $<
+	@${CC} ${CCFLAGS} $^ -o $<
 
 %.o: %.cpp
-	${CC} ${CCFLAGS} -c $<
+	@${CC} ${CCFLAGS} -c $<
 
 clean:
 	rm -rf ${OBJ}

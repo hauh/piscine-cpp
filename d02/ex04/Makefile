@@ -6,7 +6,7 @@
 #    By: smorty <smorty@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/19 23:44:58 by smorty            #+#    #+#              #
-#    Updated: 2019/11/20 00:39:46 by smorty           ###   ########.fr        #
+#    Updated: 2019/11/24 00:29:59 by smorty           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ INCLUDE	:= eval_expr.hpp Fixed.class.hpp OpStack.class.hpp Postfix.class.hpp
 
 OBJ		:= $(addprefix ${OBJ_DIR}/, ${CPP:%.cpp=%.o} $(CLASSES:%.cpp=%.o))
 
-CC		:= g++
+CC		:= clang++
 CCFLAGS	:= -Wall -Werror -Wextra --std=c++11
 
 vpath %.cpp	${SRC_DIR}

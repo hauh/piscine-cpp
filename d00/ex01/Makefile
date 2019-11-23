@@ -6,7 +6,7 @@
 #    By: smorty <smorty@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/10 18:05:47 by smorty            #+#    #+#              #
-#    Updated: 2019/11/11 20:29:10 by smorty           ###   ########.fr        #
+#    Updated: 2019/11/24 00:30:56 by smorty           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,26 +18,26 @@ OBJ_DIR := obj
 
 CPP		:= phonebook.cpp
 CLASSES	:= Contact.class.cpp
+INCLUDE	:= phonebook.hpp Contact.class.hpp
 
-OBJ		:= ${CPP:%.cpp=%.o}
-OBJ		+= ${CLASSES:%.cpp=%.o}
+OBJ		:= $(addprefix ${OBJ_DIR}/, ${CPP:%.cpp=%.o} $(CLASSES:%.cpp=%.o))
 
-CC		:= g++
+CC		:= clang++
 CCFLAGS	:= -Wall -Werror -Wextra
 
 vpath %.cpp	${SRC_DIR}
-vpath %.o	${OBJ_DIR}
+vpath %.hpp	${INC_DIR}
 
 all: ${NAME}
 
 ${NAME}: ${OBJ}
-	${CC} ${CCFLAGS} $(addprefix ${OBJ_DIR}/, $^) -o $@
+	@${CC} ${CCFLAGS} $^ -o $@
 
 ${OBJ_DIR}:
 	@mkdir ${OBJ_DIR}
 
-${OBJ}: %.o: %.cpp ${OBJ_DIR}
-	${CC} ${CCFLAGS} -I ${INC_DIR} -c $< -o ${OBJ_DIR}/$@
+${OBJ}: ${OBJ_DIR}/%.o: ${SRC_DIR}/%.cpp ${INCLUDE} | ${OBJ_DIR}
+	@${CC} ${CCFLAGS} -I ${INC_DIR} -c $< -o $@
 
 clean:
 	@rm -rf ${OBJ_DIR}
